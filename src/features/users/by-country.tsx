@@ -196,7 +196,7 @@ export default function ActiveUsersByCountryTable() {
           </button>
           <button
             onClick={() => handleSort('trend')}
-            className="col-span-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider hover:text-gray-700 transition-colors"
+            className="col-span-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider hover:text-gray-700 transition-colors"
           >
             Trend
           </button>
@@ -231,7 +231,7 @@ export default function ActiveUsersByCountryTable() {
               </div>
 
               {/* Trend column */}
-              <div className="col-span-3 flex items-center space-x-1">
+              <div className="col-span-3 flex justify-end items-center space-x-1">
                 {country.trend.direction === 'up' ? (
                   <TrendingUp className="h-4 w-4 text-green-500" />
                 ) : (
