@@ -14,6 +14,7 @@ import { Route as rootRoute } from './routes/__root'
 import { Route as IndexImport } from './routes/index'
 import { Route as UsersIndexImport } from './routes/users/index'
 import { Route as DashboardIndexImport } from './routes/dashboard/index'
+import { Route as UsersByCountryImport } from './routes/users/by-country'
 
 // Create/Update Routes
 
@@ -35,6 +36,12 @@ const DashboardIndexRoute = DashboardIndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const UsersByCountryRoute = UsersByCountryImport.update({
+  id: '/users/by-country',
+  path: '/users/by-country',
+  getParentRoute: () => rootRoute,
+} as any)
+
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
@@ -44,6 +51,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/users/by-country': {
+      id: '/users/by-country'
+      path: '/users/by-country'
+      fullPath: '/users/by-country'
+      preLoaderRoute: typeof UsersByCountryImport
       parentRoute: typeof rootRoute
     }
     '/dashboard/': {
@@ -67,12 +81,14 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/users/by-country': typeof UsersByCountryRoute
   '/dashboard': typeof DashboardIndexRoute
   '/users': typeof UsersIndexRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/users/by-country': typeof UsersByCountryRoute
   '/dashboard': typeof DashboardIndexRoute
   '/users': typeof UsersIndexRoute
 }
@@ -80,27 +96,30 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
+  '/users/by-country': typeof UsersByCountryRoute
   '/dashboard/': typeof DashboardIndexRoute
   '/users/': typeof UsersIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/dashboard' | '/users'
+  fullPaths: '/' | '/users/by-country' | '/dashboard' | '/users'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/dashboard' | '/users'
-  id: '__root__' | '/' | '/dashboard/' | '/users/'
+  to: '/' | '/users/by-country' | '/dashboard' | '/users'
+  id: '__root__' | '/' | '/users/by-country' | '/dashboard/' | '/users/'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  UsersByCountryRoute: typeof UsersByCountryRoute
   DashboardIndexRoute: typeof DashboardIndexRoute
   UsersIndexRoute: typeof UsersIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  UsersByCountryRoute: UsersByCountryRoute,
   DashboardIndexRoute: DashboardIndexRoute,
   UsersIndexRoute: UsersIndexRoute,
 }
@@ -116,12 +135,16 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
+        "/users/by-country",
         "/dashboard/",
         "/users/"
       ]
     },
     "/": {
       "filePath": "index.tsx"
+    },
+    "/users/by-country": {
+      "filePath": "users/by-country.tsx"
     },
     "/dashboard/": {
       "filePath": "dashboard/index.tsx"

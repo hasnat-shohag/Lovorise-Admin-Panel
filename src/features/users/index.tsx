@@ -3,7 +3,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import { Heart, ArrowUpRight } from 'lucide-react'
+import { Heart, CircleArrowRight } from 'lucide-react'
 import { Pagination } from '@/components/pagination'
 import { useState } from 'react'
 
@@ -117,12 +117,23 @@ export function ActiveUserList() {
   return (
     <Card className="w-full">
       <CardHeader className="pb-6">
-        <CardTitle className="text-2xl font-bold text-gray-900">
-          Active user list
-        </CardTitle>
-        <p className="text-sm text-gray-500 mt-1">
-          You can see here most active users
-        </p>
+        <div className="flex justify-between items-center">
+          <div>
+            <CardTitle className="text-2xl font-bold text-gray-900">
+              Active user list
+            </CardTitle>
+            <p className="text-sm text-gray-500 mt-1">
+              You can see here most active users
+            </p>
+          </div>
+          <Button
+            variant="outline"
+            className="border cursor-pointer border-gray-200 hover:bg-gray-50"
+            onClick={() => (window.location.href = '/users/by-country')}
+          >
+            View Users by Country
+          </Button>
+        </div>
       </CardHeader>
       <CardContent className="p-0">
         {/* Table Header */}
@@ -203,9 +214,9 @@ export function ActiveUserList() {
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="h-8 w-8 p-0 rounded-full border border-gray-200 hover:bg-gray-100"
+                  className="h-8 w-8 p-0 rounded-full hover:bg-gray-100"
                 >
-                  <ArrowUpRight className="h-4 w-4 text-gray-400" />
+                  <CircleArrowRight className="h-4 w-4 text-pink-500" />
                 </Button>
               </div>
             </div>

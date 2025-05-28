@@ -101,12 +101,12 @@ export function Pagination({
       {/* Previous button */}
       {showPrevNext && (
         <Button
-          variant={variant === 'default' ? 'ghost' : variant}
+          variant={variant === 'default' ? 'outline' : variant}
           size={buttonSize}
           onClick={() => onPageChange(Math.max(1, currentPage - 1))}
           disabled={currentPage === 1}
           className={cn(
-            'flex items-center space-x-1 text-gray-600 hover:text-gray-900 hover:bg-gray-100',
+            'flex items-center space-x-1 text-gray-600 hover:text-gray-900 hover:bg-gray-100 border border-gray-200',
             currentPage === 1 && 'opacity-50 cursor-not-allowed',
           )}
         >
@@ -159,12 +159,12 @@ export function Pagination({
       {/* Next button */}
       {showPrevNext && (
         <Button
-          variant={variant === 'default' ? 'ghost' : variant}
+          variant={variant === 'default' ? 'outline' : variant}
           size={buttonSize}
           onClick={() => onPageChange(Math.min(totalPages, currentPage + 1))}
           disabled={currentPage === totalPages}
           className={cn(
-            'flex items-center space-x-1 text-gray-600 hover:text-gray-900 hover:bg-gray-100',
+            'flex items-center space-x-1 text-gray-600 hover:text-gray-900 hover:bg-gray-100 border border-gray-200',
             currentPage === totalPages && 'opacity-50 cursor-not-allowed',
           )}
         >
