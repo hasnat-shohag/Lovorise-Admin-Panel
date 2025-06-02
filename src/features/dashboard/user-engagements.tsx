@@ -14,7 +14,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover'
-import { BarChart3, SlidersHorizontal } from 'lucide-react'
+import { SlidersHorizontal } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import Highcharts from 'highcharts'
 
@@ -122,7 +122,7 @@ export function UserEngagements() {
             color: '#F9FAFB',
           },
           formatter: function () {
-            return `<b>${this.point.name}</b><br/>${this.y}%`
+            return `<b>${this?.points?.values}</b><br/>${this.y}%`
           },
         },
         credits: {

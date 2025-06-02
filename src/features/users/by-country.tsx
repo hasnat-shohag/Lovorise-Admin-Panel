@@ -9,8 +9,6 @@ import {
   Search,
   TrendingUp,
   TrendingDown,
-  Download,
-  Filter,
   SlidersHorizontal,
 } from 'lucide-react'
 import { useState } from 'react'

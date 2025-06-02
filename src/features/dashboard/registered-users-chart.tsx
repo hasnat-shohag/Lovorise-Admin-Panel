@@ -60,7 +60,7 @@ export function RegisteredUsersChart() {
             color: '#F9FAFB',
           },
           formatter: function () {
-            return `<b>${this.point.name}</b><br/>${this.y} users`
+            return `<b>${this?.points?.values}</b><br/>${this.y} users`
           },
         },
         credits: {
